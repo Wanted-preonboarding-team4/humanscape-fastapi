@@ -18,28 +18,28 @@ class BaseMixin:
 
 class Department(Base,BaseMixin):
     __tablename__ = 'department'
-    name = Column(String(length=50),nullable=False)
-    research = relationship('Research', backref='department')
+    name          = Column(String(length=50),nullable=False)
+    research      = relationship('Research', backref='department')
 
 class Hospital(Base,BaseMixin):
     __tablename__ = 'hospital'
-    name = Column(String(length=50),nullable=False)
-    research = relationship('Research', backref='hospital')
+    name          = Column(String(length=50),nullable=False)
+    research      = relationship('Research', backref='hospital')
 
 class Type(Base,BaseMixin):
     __tablename__ = 'type'
-    name = Column(String(length=50),nullable=False)
-    research = relationship('Research', backref='type')
+    name          = Column(String(length=50),nullable=False)
+    research      = relationship('Research', backref='type')
 
 class Scope(Base,BaseMixin):
     __tablename__ = 'scope'
-    name = Column(String(length=50),nullable=False)
-    research = relationship('Research', backref='scope')
+    name          = Column(String(length=50),nullable=False)
+    research      = relationship('Research', backref='scope')
 
 class Stage(Base,BaseMixin):
     __tablename__ = 'stage'
-    name = Column(String(length=50),nullable=False)    
-    research = relationship('Research', backref='stage')
+    name          = Column(String(length=50),nullable=False)
+    research      = relationship('Research', backref='stage')
 
 class Research(Base,BaseMixin):
     __tablename__ = 'research'
