@@ -2,7 +2,7 @@ from dataclasses import dataclass, asdict
 from pathlib import Path
 from os import environ
 
-from common.consts import DB_PW
+#from common.consts import DB_PW
 
 BASE_DIR = Path(__file__).resolve().parent.parent  # app 경로
 # print(BASE_DIR)
