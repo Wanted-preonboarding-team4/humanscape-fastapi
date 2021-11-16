@@ -52,12 +52,9 @@ Back-end : <img src="https://img.shields.io/badge/Python 3.8-3776AB?style=for-th
 <p>
 Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp;
 <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>&nbsp;
-<img src="https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=Postman&logoColor=white"/>
+<img src=“https://img.shields.io/badge/SWAGGER-5B8C04?style=for-the-badge&logo=Swagger&logoColor=white”/>&nbsp;  
+<img src=“https://img.shields.io/badge/sqlite-0064a5?style=for-the-badge&logo=sqlite&logoColor=white”/>&nbsp;  
 </p>
-
-## 모델링  
-
-<img width="772" alt="스크린샷 2021-11-12 오전 3 26 36" src="https://user-images.githubusercontent.com/78228444/141350250-cf0f31b4-3905-46e9-ac6b-e390f516ad4d.png">
 
 
 ## 파일 구조  
