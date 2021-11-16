@@ -12,7 +12,7 @@
 ## 과제  안내
 
 ### Documentation API  
-https://documenter.getpostman.com/view/16891318/UVC8CRFW  
+
 
 ### API 목록
 - 수집한 임상정보 리스트 API (특정 임상정보 읽기(키 값은 자유))
@@ -23,47 +23,22 @@ https://documenter.getpostman.com/view/16891318/UVC8CRFW
 
 ---
 
-**1)** 거래내역 조회 **API**
+**1)** 임상정보를 수집하는 **batch task**  
 
-- 아래와 같은 조회 화면에서 사용되는 API를 고려하시면 됩니다.
-    
-    ![image](https://lh6.googleusercontent.com/PdtI4YvVu3biJ0TyEGCHVrR0fAPOQsILYHEczQHmR3UMKEINxlIjjp_-3gOGu5yGh3YXpxbegNYqNCEosUosq3nKRTMpte6ZiRUccX8iRlD5rxLJ1HWFy6E2HcMFMIMGZO7eVQl5)
-    
+- 공공기관의 Open API를 매 주기마다 가져오게 했습니다.
 
 거래내역 API는 다음을 만족해야 합니다.
 
-- 계좌의 소유주만 요청 할 수 있어야 합니다.
-- 거래일시에 대한 필터링이 가능해야 합니다.
-- 출금, 입금만 선택해서 필터링을 할 수 있어야 합니다.
-- Pagination이 필요 합니다.
-- 다음 사항이 응답에 포함되어야 합니다.
-    - 거래일시
-    - 거래금액
-    - 잔액
-    - 거래종류 (출금/입금)
-    - 적요
 
-**2)** 입금 **API**
+**2)**- 수집한 임상정보에 대한 **API**  
+- 특정 임상정보 읽기(키 값은 자유)  
 
-입금 API는 다음을 만족해야 합니다.
 
-- 계좌의 소유주만 요청 할 수 있어야 합니다.
-
-**3)** 출금 **API**
+**3)** 수집한 임상정보 리스트 **API**
 
 출금 API는 다음을 만족해야 합니다.
 
-- 계좌의 소유주만 요청 할 수 있어야 합니다.
-- 계좌의 잔액내에서만 출금 할 수 있어야 합니다. 잔액을 넘어선 출금 요청에 대해서는 적절한 에러처리가 되어야 합니다.
-
-**4)** 가산점
-
-다음의 경우 가산점이 있습니다.
-
-- Unit test의 구현
-- Functional Test 의 구현 (입금, 조회, 출금에 대한 시나리오 테스트)
-- 거래내역이 1억건을 넘어갈 때에 대한 고려
-    - 이를 고려하여 어떤 설계를 추가하셨는지를 README에 남겨 주세요.
+- 최근 일주일내에 업데이트(변경사항이 있는) 된 임상정보 리스트  
 
 
 ## 사용한 기술 스택
@@ -84,35 +59,19 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 
 
 ## 파일 구조  
-- `./config`
-  - `./__init__.py`    
-  - `./asgi.py`
-  - `./settings.py`
-  - `./urls.py`
-  - `./wsgi.py`
-- `./users`
-  - `./migration`
-  - `./__init__.py`
-  - `./admin.py`
-  - `./apps.py`
-  - `./models.py`
-  - `./tests.py`
-  - `./urls.py`
-  - `./utils.py`
-  - `./views.py`
-- `./account`
-  - `./migration`
-  - `./__init__.py`
-  - `./admin.py`
-  - `./apps.py`
-  - `./filtering.py`
-  - `./models.py`
-  - `./tests.py`
-  - `./urls.py`
-  - `./views.py`
-- `./.gitignore`
-- `./manage.py`
-- `./requirements.txt`
+- `./common`
+  - `./config.py`    
+- `./dao`
+  - `./dao.py`
+- `./database`
+  - `./conn.py`
+  - `./models.py`  
+  - `./schema.py`
+- `./router`
+  -`./router.py`  
+- `./service`
+  -`./service.py`  
+  
 
 ## 구현기능  
 
