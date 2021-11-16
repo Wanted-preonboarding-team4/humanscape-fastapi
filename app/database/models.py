@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session, relationship
-from app.database.conn import Base, db
+from database.conn import Base, db
 from sqlalchemy import (
     Column,
     Integer,
