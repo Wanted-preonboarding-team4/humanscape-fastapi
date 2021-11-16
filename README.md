@@ -62,9 +62,9 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
   - `./models.py`  
   - `./schema.py`  
 - `./router`  
-  -`./router.py`  
+  - `./router.py`  
 - `./service`  
-  -`./service.py`  
+  - `./service.py`  
   
 
 ## 구현기능  
