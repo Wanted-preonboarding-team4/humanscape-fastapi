@@ -78,7 +78,7 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 ## 구현기능  
 
 ### 수집한 임상정보에 대한 API
-**endpoint** : `/search`/```number```  
+**endpoint** : `api/search`/```number (number는 Open API에 있는 연구번호 속성)```  
 - ```읽어오기 성공``` : status_code : 200
 
 ```
@@ -101,63 +101,65 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 }
 ```
 
-- ```계좌생성 실패시``` : 
-1. 비밀번호가 숫자 4자리 아닐시 status_code : 400, 
-2. 키에러가 발생했을시 status_code : 400
+- ```실패시``` : status_code : 404
 ```
 - JSON
 {
-    "MESSAGE":"숫자 4자리를 입력해주세요.",
-    "MESSAGE": "KEY_ERROR"   
+    "MESSAGE":"NOT LIST"
 }
 
 ``` 
 
 ### 수집한 임상정보 리스트 API
-**endpoint** : `/account/deposit`
+**endpoint** : `api/list`?```skip=(int)&limit(int)```
 
-- ```Body Message```
 ```
 - JSON
 {
-    'name': '강대훈',
-    'account_id': 1,
-    'password': '8647',
-    'amount': 5000,
-    'user_id': 2
+    "RESULT":[
+    {
+        "id" :1  
+        "number": "C160009",  
+        "name": "한국인 알코올 사용장애 임상결과 및 생물정신사회적 오인 규명을 위한 임상 및 지역기관 융합연구",  
+        "subject_count":540,  
+        "period": "5년",  
+        "research_created_at" : 2021.11.16  02:08:55",  
+        "research_updated_at" : 2021.11.16 02:08:55",  
+        "department_name" : "Psychiatry",  
+        "hospital_name" : "가톨릭대 서울성모병원",  
+        "type" : "관찰연구",  
+        "scope" : "국내다기관",  
+        "stage": "코호트"
+    },
+    {
+        "id" :2  
+        "number": "C130011",  
+        "name": "대한민국 쇼그렌 증후군 코호트 구축",  
+        "subject_count":500,  
+        "period": "6년",  
+        "created_at" : 2021.11.15 02:08:55",  
+        "updated_at" : 2021.11.15 02:08:55",  
+        "department" : "Rheumatology",
+        "hospital" : "가톨릭대 서울성모병원",  
+        "type" : "관찰연구",  
+        "scope : "국내다기관",  
+        "stage": "코호트"  
+    },
+    .
+    .
+    .
+    
+    ]
 }
 ```
-- ```입금 성공시``` : status 200,
-```
-- JSON
-{
-    'MESSAGE': '입금 성공'
-}
-``` 
 
-- ```일치하는 계좌가 없을 때``` : status 404, 
-``` 
+- ```실패시``` : status_code : 404
+```
 - JSON
 {
-    'MESSAGE': '일치하는 계좌가 없습니다.'
+    "MESSAGE":"NO DATA"  
 }
-```
 
-- ```본인의 계좌가 아닐 때``` : status 404, 
-``` 
-- JSON
-{
-    'MESSAGE': '본인의 계좌가 아닙니다.'
-}
-```
-
-- ```패스워드가 틀렸을 때``` : status 404, 
-``` 
-- JSON
-{
-    'MESSAGE': '비밀번호가 틀렸습니다.'
-}
-```
 
 
 
