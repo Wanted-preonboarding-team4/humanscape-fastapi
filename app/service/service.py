@@ -50,18 +50,18 @@ def research_list_service(skip, limit, session):
         return None
 
     data_list = [{
-        "id"             : data[0],
-        "number"         : data[1],
-        "name"           : data[2],
-        "subject_count"  : data[3],
-        "period"         : data[4],
-        "created_at"     : data[5].strftime('%Y.%m.%d %H:%M:%S'),
-        "updated_at"     : data[6].strftime('%Y.%m.%d %H:%M:%S'),
-        "department_name": data[7],
-        "hospital_name"  : data[8],
-        "type_name"      : data[9],
-        "scope_name"     : data[10],
-        "stage_name"     : data[11],
+        "id"           : data[0],
+        "number"       : data[1],
+        "name"         : data[2],
+        "subject_count": data[3],
+        "period"       : data[4],
+        "created_at"   : data[5].strftime('%Y.%m.%d %H:%M:%S'),
+        "updated_at"   : data[6].strftime('%Y.%m.%d %H:%M:%S'),
+        "department"   : data[7],
+        "hospital"     : data[8],
+        "type"         : data[9],
+        "scope"        : data[10],
+        "stage"        : data[11],
     }for data in research_list]
 
     return data_list

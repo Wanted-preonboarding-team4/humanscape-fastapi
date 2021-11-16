@@ -2,9 +2,9 @@ from typing              import Optional, List
 from fastapi             import APIRouter, Depends, Header, Request
 from sqlalchemy.orm      import Session
 from starlette.responses import JSONResponse
-from http.client import HTTPException
-from service.service import get_clinical_information, get_research_detail, research_list_service
-from database.conn import db
+from http.client         import HTTPException
+from service.service     import get_clinical_information, get_research_detail, research_list_service
+from database.conn       import db
 from database.schema     import ResearchList
 
 router = APIRouter(prefix="/api")
