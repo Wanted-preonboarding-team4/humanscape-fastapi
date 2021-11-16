@@ -12,6 +12,7 @@
 ## 과제  안내
 
 ### Documentation API  
+- 0.0.0.0/8000/docs  
 
 ### 모델링  
 ![image](https://user-images.githubusercontent.com/32921115/142034117-6a11471b-7906-4d7b-bb52-a237b4f50080.png)  
@@ -150,10 +151,14 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 {
     "MESSAGE":"NO DATA"  
 }
-
+```
 
 ## 구현하지 못한 기능  
-- 
+### 임상정보를 수집하는 batch task, 검색 API  
+- 아이디어는 처음에 Open API를 불러들인 다음 연구번호를 필터로 하여 데이터가 DB에 없으면 넣고 있으면 데이터를 매치해 수정된 것이 있나 확인하고 update를 실행하게 했다.  
+- 위의 기능을 구현은 하였으나 batch task 구현에 실패하였다. 이유는 Fast API에 db에 접근하게 하는 session 때문이었는데, task 진행 시 session이 자꾸 사라지는 현상이 발생하였다.  
+- 공식 문서, 스택 오버플로우 등 모든 사이트를 다 뒤져보아도 해결하지 못해 구현하지 못했다. 여기서 시간을 너무 많이 빼앗겨 검색 기능과 배포를 하지 못했다.  
+-      
 
 # Reference
 이 프로젝트는 원티드x위코드 백엔드 프리온보딩 과제 일환으로 8퍼센트에서 출제한 과제를 기반으로 만들었습니다.
