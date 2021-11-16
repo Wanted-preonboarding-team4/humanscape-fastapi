@@ -1,4 +1,4 @@
-from sqlalchemy.sql.expression import desc, update
+from sqlalchemy.sql.expression import desc
 from datetime                  import datetime, timedelta
 from database.models           import (
     Research, 
@@ -156,19 +156,3 @@ def create_scope_dao(scope_name, session):
     session.commit()
     session.refresh(create_stage)
     return create_stage.id
-
-
-
-# def research_list_dao(skip, limit, session):
-#     research_list = session.query(Research).order_by(desc(Research.updated_at)).offset(skip).limit(limit)
-#     result = []
-#     for i in research_list:
-#         result.append(i.to_dict())
-#     return result
-
-# def menu_list_repository(skip, limit, session):
-#     menu_list = session.query(Menu).offset(skip).limit(limit)
-#     temp = []
-#     for i in menu_list:
-#         temp.append(i.to_dict())
-#     return temp
