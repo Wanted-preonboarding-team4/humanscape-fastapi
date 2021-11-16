@@ -13,6 +13,9 @@
 
 ### Documentation API  
 
+### 모델링  
+![image](https://user-images.githubusercontent.com/32921115/142034117-6a11471b-7906-4d7b-bb52-a237b4f50080.png)  
+
 
 ### API 목록
 - 수집한 임상정보 리스트 API (특정 임상정보 읽기(키 값은 자유))
@@ -75,7 +78,8 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 ## 구현기능  
 
 ### 수집한 임상정보에 대한 API
-**endpoint** : `/account`
+**endpoint** : `/search`
+```number```
 - ```계좌생성 성공시``` : status_code : 200
 
 ```
