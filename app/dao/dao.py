@@ -1,27 +1,13 @@
-<<<<<<< HEAD
-from database.models import (
-<<<<<<< HEAD
-=======
 from sqlalchemy.sql.expression import desc, update
 from datetime                  import datetime, timedelta
 from database.models           import (
->>>>>>> 38ddb70 (feat : research list4)
     Research, 
     Hospital, 
     Department, 
     Stage, 
     Scope, 
     Type
-=======
-    Department,
-    Hospital,
-    Type,
-    Scope,
-    Stage,
-    Research
->>>>>>> 52ed1c5 (feat : research list)
 )
-
 
 def get_research_detail_data(q, session):
     research = session.query(

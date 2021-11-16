@@ -1,16 +1,9 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-from typing import Optional
-from fastapi import Depends
-=======
 from typing         import Optional
 from fastapi        import Depends, requests
->>>>>>> 38ddb70 (feat : research list4)
 from sqlalchemy.orm import Session
-from database.conn import db
-from dao.dao import get_research_detail_data, batch_update_dao
-from urllib import parse
-import requests
+from database.conn  import db
+from dao.dao        import get_research_detail_data, batch_update_dao, research_list_dao
+from urllib         import parse
 
 
 
@@ -21,28 +14,20 @@ def get_research_detail(q: Optional[str] = None, session: Session = Depends(db.s
         return None
     
     data_detail = {
-        "research_number": data[0],
-        "research_name": data[1],
+        "research_number"       : data[0],
+        "research_name"         : data[1],
         "research_subject_count": data[2],
-        "research_period": data[3],
-        "research_created_at": data[4].strftime('%Y.%m.%d %H:%M:%S'),
-        "research_updated_at": data[5].strftime('%Y.%m.%d %H:%M:%S'),
-        "department_name": data[6],
-        "hospital_name": data[7],
-        "type_name": data[8],
-        "scope_name": data[9],
-        "stage_name": data[10],
+        "research_period"       : data[3],
+        "research_created_at"   : data[4].strftime('%Y.%m.%d %H:%M:%S'),
+        "research_updated_at"   : data[5].strftime('%Y.%m.%d %H:%M:%S'),
+        "department_name"       : data[6],
+        "hospital_name"         : data[7],
+        "type_name"             : data[8],
+        "scope_name"            : data[9],
+        "stage_name"            : data[10],
     }
-    
     return data_detail
 
-=======
-from fastapi import requests
-
-from urllib import parse
-
-from dao import dao
->>>>>>> 52ed1c5 (feat : research list)
 
 # Open API 연결
 def get_clinical_information(session):
@@ -59,13 +44,9 @@ def get_clinical_information(session):
     datas = request.json()['data']
     batch_update_dao(datas)
     return True
-from dao.dao import research_list_dao
+
 
 def research_list_service(skip, limit, session):
-<<<<<<< HEAD
-    research_list = dao.research_list_dao(skip, limit, session)
-    return research_list
-=======
     research_list = research_list_dao(skip, limit, session)
     if not research_list: 
         return None
@@ -86,4 +67,3 @@ def research_list_service(skip, limit, session):
     }for data in research_list]
 
     return data_list
->>>>>>> 38ddb70 (feat : research list4)
