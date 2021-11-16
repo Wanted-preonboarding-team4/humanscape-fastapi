@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from starlette.responses import JSONResponse
 from database.conn import db
 from http.client import HTTPException
-from service.service import get_research_detail
+from service.service import get_clinical_information, get_research_detail
 
 router = APIRouter(prefix="/api")
 
@@ -20,4 +20,9 @@ async def search(q: Optional[str] = None, session: Session = Depends(db.session)
 
 @router.get("/batch", tags=['batch'])
 async def get_batch_clinical_data(serviceKey: Optional[str] = None, session:Session = Depends(db.session)):
+    get_clinical_information(serviceKey, session)
     return {'ststus':200}
+
+
+
+
