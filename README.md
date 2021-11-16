@@ -27,10 +27,7 @@
 ---
 
 **1)** 임상정보를 수집하는 **batch task**  
-
 - 공공기관의 Open API를 매 주기마다 가져오게 했습니다.
-
-거래내역 API는 다음을 만족해야 합니다.
 
 
 **2)**- 수집한 임상정보에 대한 **API**  
@@ -38,9 +35,6 @@
 
 
 **3)** 수집한 임상정보 리스트 **API**
-
-출금 API는 다음을 만족해야 합니다.
-
 - 최근 일주일내에 업데이트(변경사항이 있는) 된 임상정보 리스트  
 
 
@@ -108,7 +102,7 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 ``` 
 
 ### 수집한 임상정보 리스트 API
-**endpoint** : `api/list`?```skip=(int)&limit(int)```
+**endpoint** : `api/list`?```skip=(int)&limit=(int)```  
 
 ```
 - JSON
