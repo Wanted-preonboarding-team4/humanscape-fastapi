@@ -41,7 +41,7 @@
 ## 사용한 기술 스택
 
 Back-end : <img src="https://img.shields.io/badge/Python 3.8-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>&nbsp;
-<img src="https://img.shields.io/badge/FastAPI 3.2-092E20?style=for-the-badge&logo=Django&logoColor=white"/>&nbsp;
+<img alt="Python" src = "https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white"/>&nbsp;
 
 <p>
 Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp;
