@@ -78,14 +78,26 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
 ## 구현기능  
 
 ### 수집한 임상정보에 대한 API
-**endpoint** : `/search`
-```number```
-- ```계좌생성 성공시``` : status_code : 200
+**endpoint** : `/search`/```number```  
+- ```읽어오기 성공``` : status_code : 200
 
 ```
 - JSON
 {
-    "MESSAGE": "SUCCESS",
+    "RESULT":
+    {
+        "research_number": "C130011",  
+        "research_name": "대한민국 쇼그렌 증후군 코호트 구축",  
+        "research_subject_count":500,  
+        "research_period": "6년",  
+        "research_created_at" : 2021.11.15 02:08:55",  
+        "research_updated_at" : 2021.11.15 02:08:55",  
+        "department_name" : "Rheumatology",
+        "hospital_name" : "가톨릭대 서울성모병원",  
+        "type_name" : "관찰연구",  
+        "scope_name" : "국내다기관",  
+        "stage_name": "코호트"
+    }
 }
 ```
 
