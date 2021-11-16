@@ -42,12 +42,13 @@
 
 Back-end : <img src="https://img.shields.io/badge/Python 3.8-3776AB?style=for-the-badge&logo=Python&logoColor=white"/>&nbsp;
 <img alt="Python" src = "https://img.shields.io/badge/fastapi-109989?style=for-the-badge&logo=FASTAPI&logoColor=white"/>&nbsp;
+<img src="https://img.shields.io/badge/sqlite-0064a5?style=for-the-badge&logo=sqlite&logoColor=white"/>&nbsp;
+
 
 <p>
 Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white"/>&nbsp;
 <img src="https://img.shields.io/badge/Github-181717?style=for-the-badge&logo=Github&logoColor=white"/>&nbsp;
-<img src=“https://img.shields.io/badge/SWAGGER-5B8C04?style=for-the-badge&logo=Swagger&logoColor=white”/>&nbsp;  
-<img src=“https://img.shields.io/badge/sqlite-0064a5?style=for-the-badge&logo=sqlite&logoColor=white”/>&nbsp;  
+<img src="https://img.shields.io/badge/SWAGGER-5B8C04?style=for-the-badge&logo=Swagger&logoColor=white"/>&nbsp;
 </p>
 
 
@@ -61,9 +62,9 @@ Tool : <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&log
   - `./models.py`  
   - `./schema.py`  
 - `./router`  
-  - `./router.py`  
+  -`./router.py`  
 - `./service`  
-  - `./service.py`  
+  -`./service.py`  
   
 
 ## 구현기능  
