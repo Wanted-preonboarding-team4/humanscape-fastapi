@@ -362,3 +362,4 @@ zsdoc/data
 humanscape.db
 __pycache__/
 app/common/consts.py
+app/crontab.py

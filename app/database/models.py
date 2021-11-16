@@ -42,15 +42,15 @@ class Stage(Base,BaseMixin):
     research      = relationship('Research', backref='stage')
 
 class Research(Base,BaseMixin):
-    __tablename__ = 'research'
-    number        = Column(String(length=50),nullable=False)
-    name          = Column(String(length=200),nullable=False)
-    subject_count = Column(Integer,nullable=True)
-    period        = Column(String(length=30),nullable=True)
-    department_id = Column(Integer,ForeignKey(Department.id))
-    hospital_id   = Column(Integer,ForeignKey(Hospital.id))
-    type_id       = Column(Integer,ForeignKey(Type.id))
-    scope_id      = Column(Integer,ForeignKey(Scope.id))
-    stage_id      = Column(Integer,ForeignKey(Stage.id))
-
+    __tablename__  = 'research'
+    __table_args__ = {'extend_existing': True}
+    number         = Column(String(length=50),nullable=False)
+    name           = Column(String(length=200),nullable=False)
+    subject_count  = Column(Integer,nullable=True)
+    period         = Column(String(length=30),nullable=True)
+    department_id  = Column(Integer,ForeignKey(Department.id))
+    hospital_id    = Column(Integer,ForeignKey(Hospital.id))
+    type_id        = Column(Integer,ForeignKey(Type.id))
+    scope_id       = Column(Integer,ForeignKey(Scope.id))
+    stage_id       = Column(Integer,ForeignKey(Stage.id),nullable=True)
 
