@@ -4,9 +4,10 @@ import uvicorn
 from dataclasses import dataclass, asdict
 from typing import Optional
 from fastapi import FastAPI
-# from router import index_route, auth_route
+from router import route
 from database.conn import db
 from common.config import conf
+
 
 def create_app():
     
@@ -17,6 +18,7 @@ def create_app():
     
     # app.include_router(index_route.router)
     # app.include_router(auth_route.router)
+    app.include_router(route.router)
 
     @app.get("/")
     def hello_fastapi():
