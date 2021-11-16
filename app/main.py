@@ -17,7 +17,10 @@ def create_app():
     db.init_app(app, **conf_dict)
     
     # app.include_router(index_route.router)
+<<<<<<< HEAD
     # app.include_router(auth_route.router)
+=======
+>>>>>>> 52ed1c5 (feat : research list)
     app.include_router(route.router)
 
     @app.get("/")

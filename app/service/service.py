@@ -1,10 +1,17 @@
+<<<<<<< HEAD
+<<<<<<< HEAD
 from typing import Optional
 from fastapi import Depends
+=======
+from typing         import Optional
+from fastapi        import Depends, requests
+>>>>>>> 38ddb70 (feat : research list4)
 from sqlalchemy.orm import Session
 from database.conn import db
 from dao.dao import get_research_detail_data, batch_update_dao
 from urllib import parse
 import requests
+
 
 
 def get_research_detail(q: Optional[str] = None, session: Session = Depends(db.session)):
@@ -29,6 +36,13 @@ def get_research_detail(q: Optional[str] = None, session: Session = Depends(db.s
     
     return data_detail
 
+=======
+from fastapi import requests
+
+from urllib import parse
+
+from dao import dao
+>>>>>>> 52ed1c5 (feat : research list)
 
 # Open API 연결
 def get_clinical_information(session):
@@ -45,3 +59,31 @@ def get_clinical_information(session):
     datas = request.json()['data']
     batch_update_dao(datas)
     return True
+from dao.dao import research_list_dao
+
+def research_list_service(skip, limit, session):
+<<<<<<< HEAD
+    research_list = dao.research_list_dao(skip, limit, session)
+    return research_list
+=======
+    research_list = research_list_dao(skip, limit, session)
+    if not research_list: 
+        return None
+
+    data_list = [{
+        "id"             : data[0],
+        "number"         : data[1],
+        "name"           : data[2],
+        "subject_count"  : data[3],
+        "period"         : data[4],
+        "created_at"     : data[5].strftime('%Y.%m.%d %H:%M:%S'),
+        "updated_at"     : data[6].strftime('%Y.%m.%d %H:%M:%S'),
+        "department_name": data[7],
+        "hospital_name"  : data[8],
+        "type_name"      : data[9],
+        "scope_name"     : data[10],
+        "stage_name"     : data[11],
+    }for data in research_list]
+
+    return data_list
+>>>>>>> 38ddb70 (feat : research list4)
