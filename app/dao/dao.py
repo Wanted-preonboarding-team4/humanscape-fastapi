@@ -1,4 +1,6 @@
-from database.models import (
+from sqlalchemy.sql.expression import desc, update
+from datetime                  import datetime, timedelta
+from database.models           import (
     Research, 
     Hospital, 
     Department, 
@@ -7,7 +9,6 @@ from database.models import (
     Type
 )
 
-
 def get_research_detail_data(q, session):
     research = session.query(
         Research.number,
@@ -15,21 +16,51 @@ def get_research_detail_data(q, session):
         Research.subject_count, 
         Research.period, 
         Research.created_at, 
-        Research.updated_at, 
+        Research.updated_at,
+        Department.name,  
         Hospital.name,
-        Department.name, 
-        Scope.name, 
         Type.name, 
+        Scope.name, 
         Stage.name) \
     .join(Hospital, Research.hospital_id == Hospital.id) \
-    .join(Department, Research.hospital_id == Department.id) \
+    .join(Department, Research.department_id == Department.id) \
     .join(Scope, Research.scope_id == Scope.id) \
     .join(Type, Research.type_id == Type.id) \
-    .join(Stage, Research.stage_id == Stage.id) \
+    .join(Stage, Research.stage_id == Stage.id,isouter=True) \
     .filter(Research.number==q).first()
 
     if research:
         return research
+    
+    return None
+
+def research_list_dao(skip, limit, session):
+    start = (int(skip)-1) * limit
+    now = datetime.now()
+    before_one_week = now - timedelta(weeks=1)
+
+    research_list = session.query(
+        Research.id,
+        Research.number,
+        Research.name, 
+        Research.subject_count, 
+        Research.period, 
+        Research.created_at, 
+        Research.updated_at,
+        Department.name,  
+        Hospital.name,
+        Type.name, 
+        Scope.name, 
+        Stage.name) \
+    .join(Hospital, Research.hospital_id == Hospital.id) \
+    .join(Department, Research.department_id == Department.id) \
+    .join(Scope, Research.scope_id == Scope.id) \
+    .join(Type, Research.type_id == Type.id) \
+    .join(Stage, Research.stage_id == Stage.id, isouter=True)\
+    .filter(Research.updated_at > before_one_week).order_by(desc(Research.updated_at))[start:start+limit]
+
+    if research_list:
+        return research_list
     
     return None
 
@@ -49,7 +80,7 @@ async def batch_update_dao(datas, session):
 # API 데이터 데이터베이스에 넣는 작업
     for data in datas:
         number = data['과제번호']
-        name = data['과제명']
+        name   = data['과제명']
         period = data['연구기간']
         subject_count = data['전체목표연구대상자수']
         department_id, scope_id, stage_id, hospital_id =0,0,0,0
@@ -72,14 +103,14 @@ async def batch_update_dao(datas, session):
 
 
 def create_research_dao(session, number, name, period, subject_count, department_id, scope_id, stage_id, hospital_id):
-    create_research = Research(number=number,
-                               name=name,
-                               period=period,
-                               subject_count=subject_count,
-                               department_id=department_id,
-                               scope_id=scope_id,
-                               stage_id=stage_id,
-                               hospital_id=hospital_id)
+    create_research = Research(number        = number,
+                               name          = name,
+                               period        = period,
+                               subject_count = subject_count,
+                               department_id = department_id,
+                               scope_id      = scope_id,
+                               stage_id      = stage_id,
+                               hospital_id   = hospital_id)
 
     session.add(create_research)
     session.commit()
@@ -127,3 +158,17 @@ def create_scope_dao(scope_name, session):
     return create_stage.id
 
 
+
+# def research_list_dao(skip, limit, session):
+#     research_list = session.query(Research).order_by(desc(Research.updated_at)).offset(skip).limit(limit)
+#     result = []
+#     for i in research_list:
+#         result.append(i.to_dict())
+#     return result
+
+# def menu_list_repository(skip, limit, session):
+#     menu_list = session.query(Menu).offset(skip).limit(limit)
+#     temp = []
+#     for i in menu_list:
+#         temp.append(i.to_dict())
+#     return temp
